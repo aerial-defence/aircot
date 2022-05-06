@@ -55,7 +55,7 @@ def adsb_to_cot_type(icao: typing.Union[str, int], category: typing.Union[str, N
     """
     affil = "C"  # Affiliation, default = Civilian
     attitude = "u"  # Attitude, default = unknown
-
+    
     # TODO: If the adsbx has a leading underscore and registry "_N1234A" then that means they are calculating the
     #  registration with no Flight ID field transmited
     # TODO: If no specific country allocated ICAO address range, e.g. "country": "Rsrvd (ICAO SAM Region)" or
@@ -179,13 +179,15 @@ def set_neutral_civ(icao: int, attitude: str = "u", affil: str = "") -> tuple:
     """Sets Affiliation and Attitude for known 'neutral' Civilian ICAOs."""
     if icao_in_known_range(icao):
         affil = "C"
-        attitude = "n"
+        #attitude = "n"
+        attitude = "u"
     return attitude, affil
 
 
 def is_known_country_icao(icao: int, attitude: str = "u"):
     if lookup_country(icao):
-        attitude = "n"
+        #attitude = "n"
+        attitude = "u"
     return attitude
 
 
@@ -204,7 +206,8 @@ def is_tw(icao: int, attitude: str = "u") -> str:
     tw_start = 0x899000
     tw_end = 0x8993FF
     if tw_start <= icao <= tw_end:
-        attitude = "n"
+        #attitude = "n"
+        attitude = "u"
     return attitude
 
 
@@ -214,7 +217,8 @@ def set_domestic_us(flight: str = None, attitude: str = ".") -> str:
     if flight:
         for dom in aircot.DOMESTIC_US_AIRLINES:
             if flight.startswith(dom):
-                attitude = "n"
+                #attitude = "n"
+                attitude = "u"
     return attitude
 
 
