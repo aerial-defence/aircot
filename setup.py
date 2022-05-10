@@ -7,7 +7,7 @@ Setup for AirCoT.
 :author: Greg Albrecht W2GMD <oss@undef.net>
 :copyright: Copyright 2021 Orion Labs, Inc.
 :license: Apache License, Version 2.0
-:source: <https://github.com/ampledata/aircot>
+:source: <https://github.com/aerial-defence/aircot>
 """
 
 import os
@@ -47,7 +47,7 @@ setuptools.setup(
     name=__title__,
     packages=[__title__],
     package_dir={__title__: __title__},
-    url=f"https://github.com/ampledata/{__title__}",
+    url=f"https://github.com/aerial-defence/{__title__}",
     description="Cursor on Target (CoT) Aircraft Classifier",
     author="Greg Albrecht",
     author_email="oss@undef.net",
